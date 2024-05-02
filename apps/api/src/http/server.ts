@@ -17,7 +17,13 @@ import { authenticateWithPassword } from '@/http/routes/auth/authenticate-with-p
 import { getProfile } from '@/http/routes/auth/get-profile'
 import { requestPasswordRecover } from '@/http/routes/auth/request-password-recover'
 import { resetPassword } from '@/http/routes/auth/reset-password'
+import { getOrganizationBilling } from '@/http/routes/billing/get-organization-billing'
+import { acceptInvite } from '@/http/routes/invites/accept-invite'
 import { createInvite } from '@/http/routes/invites/create-invite'
+import { getInvite } from '@/http/routes/invites/get-invite'
+import { getPendingInvites } from '@/http/routes/invites/get-pending-invites'
+import { rejectInvite } from '@/http/routes/invites/reject-invite'
+import { revokeInvite } from '@/http/routes/invites/revoke-invite'
 import { getMembers } from '@/http/routes/members/get-members'
 import { removeMember } from '@/http/routes/members/remove-member'
 import { updateMember } from '@/http/routes/members/update-member'
@@ -99,6 +105,13 @@ app.register(updateMember)
 app.register(removeMember)
 
 app.register(createInvite)
+app.register(getInvite)
+app.register(acceptInvite)
+app.register(rejectInvite)
+app.register(revokeInvite)
+app.register(getPendingInvites)
+
+app.register(getOrganizationBilling)
 
 app.listen({ port: env.SERVER_PORT }).then(() => {
   console.log('HTTP server running!')
